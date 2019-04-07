@@ -1,0 +1,26 @@
+#+TITLE: RL2Pocket
+#+OPTIONS: ^:nil
+#+latex_header: \hypersetup{colorlinks=true,linkcolor=black}
+
+* Description
+  This script parses =Safari/Bookmarks.plist= to extract all URLs saved into the =ReadingList=
+  by a user. All extracted URLs are sent to =add@getpocket.com= (see [[https://help.getpocket.com/article/895-how-to-save-to-pocket-overview][this]] guide from Pocket),
+  which imports them automagically to user's account.
+* Dependencies
+  Your system should have at least =python2.7= installed. With that in place just run:
+  #+BEGIN_SRC shell -i
+  pip install -r requirements.txt
+  #+END_SRC
+  On top of that a user must provide an SMTP server to use (as well as a key/password).
+  GMail requires creating an extra =app= and generates a =password= that has to be used together with
+  =smtp.gmail.com=. See [[https://support.google.com/a/answer/176600?hl=en][this]] guide.
+* Usage
+  To upload *all* your ReadingList URLs run:
+  #+BEGIN_SRC shell -i
+  python rl2pocket.py <email> <password> <smtp server>
+  #+END_SRC
+  Run:
+  #+BEGIN_SRC -i
+  python rl2pocket.py -h
+  #+END_SRC
+  to discover more.
